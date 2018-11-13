@@ -1,0 +1,32 @@
+#if (OS X > 10.6)
+#Lion, Mountain Lion, Mavericks, Yosemite and Sierra
+#1. reboot pc and press 'cmd + r'
+#2. menu bar -> Utilities -> Terminal -> resetpassword
+
+#else if (OS X < 10.6)
+#1. reboot pc and press 'cmd + s'
+#Now there are two methos:
+#Method1 is simple and fast (try this one first)
+#Method2 is a bit tricky and lasts alot longer because it is a whole mac setup
+
+#Method1:
+#2. write following commands and replace 'username' with the username and 'password' with the password
+
+mount -uw /   #give access to the actual drive
+launchctl load /System/Library/LaunchDaemons/com.apple.DirectoryServices.plist
+ls /Users
+dscl . -passwd /Users/username password  #resets the 'password' at 'username'
+reboot
+
+#Method2:
+#2. write the following commands then the mac will think he is completly new -> u can sett a new admin acc
+# and with the new admin account you can change the password of the old account still existing on the machine
+# for more informations about how to proceed after resetting the computer watch this video:
+# https://www.youtube.com/watch?v=TjxAgiNqkDM
+
+mount -uw /          #permissions
+rm /var/db/.AppleSetupDone  #delete the setup information -> the pc thinks he is completly new
+
+shutdown -h now #shutdown to "save"
+#or better reboot
+reboot
