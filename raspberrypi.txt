@@ -1,0 +1,49 @@
+# prepare sd card
+# download linux image
+# plug sd card into macbook and delete it
+# use Disk Utillity OS X software to convert it to FAT32
+# Check what path the sd card has by showing all drives with diskutil cmd
+
+diskutil list # or df
+
+# then go to terminal and unmount the sd card
+
+diskutil unmount /dev/disk2s1
+
+#copy the image on the volume (remove last 2 chars of voulume (disk2s1 -> disk2))
+
+sudo dd if=kali-2.1.2-rpi2.img of=/dev/rdisk2
+
+#connect via ssh and install gparted
+
+apt-get install gparted
+
+#because gparted is graphical only --> set up VNC
+
+apt-get install tightvncserver
+
+# launch it and set password
+# this programm has to be launched before every VNC connection
+
+tightvncserver
+
+
+# go on ur macbook open VNC viewer and use the displayed name :
+
+#root@kali:~# tightvncserver
+#New 'X' desktop is kali:1
+#Starting applications specified in /root/.vnc/xstartup
+#Log file is /root/.vnc/kali:1.log
+#root@kali:~#
+
+# in this case the name is "kali:1" as u can see in the last line: "Log file is /root/.vnc/"kali:1".log"
+#for more information check this yt video: https://www.youtube.com/watch?v=0SRgp5uekwQ
+
+# now start gparted with the terminal and resize partition
+# https://youtu.be/3C-TOBsgHME?t=2m14s
+
+gparted
+
+# then install kali linux full (takes a few hours)
+
+apt-get install kali-linux-full
