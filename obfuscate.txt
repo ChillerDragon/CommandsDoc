@@ -1,0 +1,9 @@
+# to better understand the output better know assembler and stuff
+# to decompile any executable on OS X use otool
+# example on the helloworld programm
+
+otool -tv helloworld
+
+# you can instant store the output in a file
+
+otool -tv helloworld > helloworld_o.txt
