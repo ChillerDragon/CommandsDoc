@@ -2,6 +2,8 @@ git remote add ddnet https://github.com/ddnet/ddnet.git
 
 #update fork
 git fetch ddnet && git checkout master && git reset --hard ddnet/master && git push origin master
+#might be cleaner than reset --hard
+git rebase ddnet/master
 
 
 # pull pullrequests
