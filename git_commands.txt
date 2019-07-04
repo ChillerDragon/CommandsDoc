@@ -8,9 +8,3 @@ git fetch ddnet && git checkout master && git rebase ddnet/master && git push or
 
 # pull pullrequests
 git pull origin pull/939/head
-
-# ddnet building cmake win
-mkdir build
-cd build
-cmake .. -DCLIENT=OFF
-cmake --build .
