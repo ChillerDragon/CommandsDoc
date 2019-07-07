@@ -4,6 +4,7 @@ git remote add ddnet https://github.com/ddnet/ddnet.git
 git fetch ddnet && git checkout master && git reset --hard ddnet/master && git push origin master
 # if you want to stay even with upstream use rebase
 # WARNING!!! this messes up pullrequests made before the rebase!
+# Also old forks. So this should only be done in a early project state without contributors.
 git fetch ddnet && git checkout master && git rebase ddnet/master && git push origin master
 
 # pull pullrequests
